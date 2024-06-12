@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load carts_tags %}
 
 
 {% block content %}
@@ -23,9 +24,9 @@
                                         alt="Аватар пользователя" class="img-fluid rounded-circle"
                                         style="max-width: 150px;">
                                 {% endif %}
-                                <input type="file" class="form-control mt-3" id="id_image"
-                                    name = "image"
-                                    accept="image/*">
+                                    <input type="file" class="form-control mt-3" id="id_image"
+                                        name = 'image'
+                                        accept="image/*">
                                     {% if form.image.errors %}
                                         <div class="alert alert-danger alert-dismissible fade show">{{form.image.errors}}</div>
                                     {% endif %}
@@ -45,8 +46,8 @@
                                 <label for="id_last_name" class="form-label">Фамилия*</label>
                                 <input type="text" class="form-control" id="id_last_name"
                                     name = "last_name"
-                                    placeholder="Введите вашу фамилию" 
-                                    value="{{ form.last_name.value }}" 
+                                    placeholder="Введите вашу фамилию"
+                                    value="{{ form.last_name.value }}"
                                     required>
                                     {% if form.last_name.errors %}
                                         <div class="alert alert-danger alert-dismissible fade show">{{form.last_name.errors}}</div>
@@ -55,8 +56,8 @@
                             <div class="col-md-12 mb-3">
                                 <label for="id_username" class="form-label">Имя пользователя*</label>
                                 <input type="text" class="form-control" id="id_username"
-                                    placeholder="Введите ваше имя пользователя" 
-                                    value="{{form.username.value}}" 
+                                    placeholder="Введите ваше имя пользователя"
+                                    value="{{ form.username.value }}"
                                     required>
                                     {% if form.username.errors %}
                                         <div class="alert alert-danger alert-dismissible fade show">{{form.username.errors}}</div>
@@ -79,6 +80,7 @@
                 </div>
             </div>
             <!-- Корзина -->
+            {% user_carts request as carts %}
             <div class="col-md-7">
                 <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
                     <h3 class="text-center mb-4">Корзина</h3>

@@ -17,7 +17,8 @@ def login(request):
             if user:
                 auth.login(request, user)
                 messages.success(request, f"{username}, Вы вошли в аккаунт ")
-                if request.POST.get('next', None):
+                redirect_page = request.POST.get('next', None)
+                if redirect_page and redirect_page != reverse('user:logout'):
                     return HttpResponseRedirect(request.POST.get('next'))
                 return HttpResponseRedirect(reverse('main:index'))
     else:
@@ -54,7 +55,7 @@ def profile(request):
         form = ProfileForm(data=request.POST, instance=request.user, files = request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, "Профайл успешно обновлен ")     
+            messages.success(request, "Профайл успешно обновлен")     
             return HttpResponseRedirect(reverse('user:profile'))
     else:
         form = ProfileForm(instance=request.user)
