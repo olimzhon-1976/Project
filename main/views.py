@@ -11,8 +11,8 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Home - Главная'
-        context['content'] = 'Магазин мебели HOME'      
+        context['title'] = 'Comfort - Главная'
+        context['content'] = 'Магазин мебели COMFORT'      
         return context
 
 
@@ -21,7 +21,7 @@ class AboutView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Home - О нас'
+        context['title'] = 'Comfort - О нас'
         context['content'] = 'О нас'
         context['text_on_page'] = 'Текст о том почему этот магазин такой класный, и какой хороший товар.'
         return context
@@ -29,8 +29,8 @@ class AboutView(TemplateView):
 # def index(request):  
 
 #     context = {
-#         'title': 'Home - Главная',
-#         'content': 'Магазин мебели HOME',
+#         'title': 'Comfort - Главная',
+#         'content': 'Магазин мебели COMFORT',
        
 #     }
 #     return render(request, 'main/index.html', context)
@@ -38,7 +38,7 @@ class AboutView(TemplateView):
 # def about(request):
        
 #     context = {
-#         'title': 'Home - О нас',
+#         'title': 'Comfort - О нас',
 #         'content': 'О нас',
 #         'text_on_page': 'Текст о том почему этот магазин такой класный, и какой хороший товар.'
 #     }
